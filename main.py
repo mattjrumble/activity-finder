@@ -5,7 +5,7 @@ Get a list of nearby UK postcodes from the pages given by Google search results.
 
 from utils import print_info, strip_protocol, Result
 from scrape import google_search_urls
-import postcode as postcode
+import postcode
     
 def main():
 
