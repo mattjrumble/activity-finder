@@ -39,7 +39,8 @@ def extract_from_url(url):
     return pcs
 
 def add_spacing(pc):
-    """Add spacing in the middle to an otherwise valid postcode."""
+    """Return the given postcode, ensuring spacing in the middle.
+    The given postcode may or may not already have middle spacing."""
     return pc if ' ' in pc else pc[:-3] + ' ' + pc[-3:]
 
 def distance_between(a, b):
