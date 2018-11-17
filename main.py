@@ -9,7 +9,7 @@ import postcode
     
 def main():
 
-    home_pc = postcode.add_spacing('CB4 2FY')
+    home_pc = postcode.sanitize('CB4 2FY')
     dist_limit = 20 # Measured in kilometers
     search_terms = ['parks', 'in', 'cambridge']
     

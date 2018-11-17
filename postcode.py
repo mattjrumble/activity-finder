@@ -9,11 +9,24 @@ import pgeocode
 import scrape
 
 REGEX = '[A-Z]{1,2}[0-9][0-9A-Z]?\s?[0-9][A-Z][A-Z]'
+PATTERN = re.compile(REGEX)
+
+class InvalidPostcode(Exception):
+    """Custom exception for when an invalid postcode is given when a valid one is expected."""
+    pass
+
+def sanitize(pc):
+    """Given a string, verify it is a valid postcode.
+    If it is, add spacing in the middle.
+    If it is not, raise an InvalidPostcode exception."""
+    if not re.match(PATTERN, pc):
+        raise InvalidPostcode
+    return add_spacing(pc)
 
 def extract_from_string(s):
     """Search the given string for postcodes.
     Return a set of all postcodes found, converted to have spacing in the middle."""
-    matches = re.findall(re.compile(REGEX), s)
+    matches = re.findall(PATTERN, s)
     spaced = [add_spacing(x) for x in matches]
     return set(spaced)
 
