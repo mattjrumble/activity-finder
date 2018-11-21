@@ -47,8 +47,8 @@ def distance_between(a, b):
     """Return the distance between two postcodes in kilometers.
     Requires postcodes to have spacing in the middle.
     Return None on failure."""
-    
-    dist =  pgeocode.GeoDistance('GB').query_postal_code(a, b)
+
+    dist = pgeocode.GeoDistance('GB').query_postal_code(a, b)
     if math.isnan(dist):
         return None
     return dist

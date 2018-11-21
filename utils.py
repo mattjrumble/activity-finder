@@ -17,11 +17,11 @@ def print_info(pc, dist, extra, indent=False):
     if indent:
         format_spec = "\t" + format_spec
     print(format_spec.format(pc, dist, extra))
-        
-def print_ascii(s):
+
+def print_ascii(string):
     """ Given a string in a weird encoding, convert it to ASCII and print it."""
-    print(s.encode('ascii', 'ignore').decode())
-    
+    print(string.encode('ascii', 'ignore').decode())
+
 def strip_protocol(url):
     """Return the URL without a http/https header."""
     for prot in ['https://', 'http://']:
